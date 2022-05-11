@@ -1,0 +1,544 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="keywords" content="Hexo Theme Keep">
+    <meta name="description" content="Hexo Theme Keep">
+    <meta name="author" content="ZPoet">
+    
+    <title>
+        
+            Java this关键字 |
+        
+        ZPoet&#39;s Blog
+    </title>
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    <link rel="shortcut icon" href="/images/avatar.jpeg">
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.5/source/css/font-awesome.min.css">
+    <script id="hexo-configurations">
+    let KEEP = window.KEEP || {};
+    KEEP.hexo_config = {"hostname":"example.com","root":"/","language":"zh-CN","path":"search.json"};
+    KEEP.theme_config = {"toc":{"enable":true,"number":false,"expand_all":true,"init_open":true},"style":{"primary_color":"#0066CC","avatar":"/images/avatar.jpeg","favicon":"/images/avatar.jpeg","article_img_align":"left","left_side_width":"260px","content_max_width":"920px","hover":{"shadow":true,"scale":false},"first_screen":{"enable":true,"background_img":"/images/bg.svg","description":"黄色的林子里有两条路，我选择了行人稀少的那一条，它改变了我的一生。"},"scroll":{"progress_bar":{"enable":true},"percent":{"enable":false}}},"local_search":{"enable":true,"preload":true},"code_copy":{"enable":true,"style":"default"},"pjax":{"enable":true},"lazyload":{"enable":true},"version":"3.4.5"};
+    KEEP.language_ago = {"second":"%s 秒前","minute":"%s 分钟前","hour":"%s 小时前","day":"%s 天前","week":"%s 周前","month":"%s 个月前","year":"%s 年前"};
+  </script>
+<meta name="generator" content="Hexo 5.4.2"></head>
+
+
+<body>
+<div class="progress-bar-container">
+    
+        <span class="scroll-progress-bar"></span>
+    
+
+    
+        <span class="pjax-progress-bar"></span>
+        <span class="pjax-progress-icon">
+            <i class="fas fa-circle-notch fa-spin"></i>
+        </span>
+    
+</div>
+
+
+<main class="page-container">
+
+    
+
+    <div class="page-main-content">
+
+        <div class="page-main-content-top">
+            <header class="header-wrapper">
+
+    <div class="header-content">
+        <div class="left">
+            
+            <a class="logo-title" href="/">
+                ZPoet&#39;s Blog
+            </a>
+        </div>
+
+        <div class="right">
+            <div class="pc">
+                <ul class="menu-list">
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/"
+                            >
+                                首页
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/archives"
+                            >
+                                归档
+                            </a>
+                        </li>
+                    
+                    
+                        <li class="menu-item search search-popup-trigger">
+                            <i class="fas fa-search"></i>
+                        </li>
+                    
+                </ul>
+            </div>
+            <div class="mobile">
+                
+                    <div class="icon-item search search-popup-trigger"><i class="fas fa-search"></i></div>
+                
+                <div class="icon-item menu-bar">
+                    <div class="menu-bar-middle"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="header-drawer">
+        <ul class="drawer-menu-list">
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/">首页</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/archives">归档</a>
+                </li>
+            
+        </ul>
+    </div>
+
+    <div class="window-mask"></div>
+
+</header>
+
+
+        </div>
+
+        <div class="page-main-content-middle">
+
+            <div class="main-content">
+
+                
+                    <div class="fade-in-down-animation">
+    <div class="article-content-container">
+
+        <div class="article-title">
+            <span class="title-hover-animation">Java this关键字</span>
+        </div>
+
+        
+            <div class="article-header">
+                <div class="avatar">
+                    <img src="/images/avatar.jpeg">
+                </div>
+                <div class="info">
+                    <div class="author">
+                        <span class="name">ZPoet</span>
+                        
+                            <span class="author-label">摸鱼 No.1</span>
+                        
+                    </div>
+                    <div class="meta-info">
+                        <div class="article-meta-info">
+    <span class="article-date article-meta-item">
+        <i class="fas fa-edit"></i>&nbsp;
+        <span class="pc">2022-05-11 22:40:36</span>
+        <span class="mobile">2022-05-11 22:40</span>
+    </span>
+    
+        <span class="article-categories article-meta-item">
+            <i class="fas fa-folder"></i>&nbsp;
+            <ul>
+                
+                    <li>
+                        <a href="/categories/%E8%AF%AD%E6%B3%95-this%E5%85%B3%E9%94%AE%E5%AD%97/">语法 this关键字</a>&nbsp;
+                    </li>
+                
+            </ul>
+        </span>
+    
+    
+        <span class="article-tags article-meta-item">
+            <i class="fas fa-tags"></i>&nbsp;
+            <ul>
+                
+                    <li>
+                        <a href="/tags/Java/">Java</a>&nbsp;
+                    </li>
+                
+            </ul>
+        </span>
+    
+
+    
+    
+        <span class="article-wordcount article-meta-item">
+            <i class="fas fa-file-word"></i>&nbsp;<span>1.8k 字</span>
+        </span>
+    
+    
+        <span class="article-min2read article-meta-item">
+            <i class="fas fa-clock"></i>&nbsp;<span>6 分钟</span>
+        </span>
+    
+    
+</div>
+
+                    </div>
+                </div>
+            </div>
+        
+
+        <div class="article-content markdown-body">
+            <p><code>this</code>关键字是 Java 常用的关键字，可用于任何实例方法内指向当前对象，也可指向对其调用当前方法的对象，或者在需要当前类型对象引用时使用。</p>
+<p>下面根分别讲解<code>this</code>关键字的三个主要用法。</p>
+<h2 id="this-属性名"><a href="#this-属性名" class="headerlink" title="this.属性名"></a>this.属性名</h2><p>大部分时候，在方法中访问其他方法、成员变量时无须使用<code>this</code>前缀，但如果方法里有局部变量和成员变量同名，但程序又需要在该方法里访问这个被覆盖的成员变量，则必须使用<code>this</code>前缀。</p>
+<p>假设有一个教师类<code>Teacher</code>的定义如下：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Teacher</span> &#123;</span><br><span class="line">	<span class="comment">//教师名称</span></span><br><span class="line">	<span class="keyword">private</span> String name;</span><br><span class="line">	<span class="comment">//工资</span></span><br><span class="line">	<span class="keyword">private</span> <span class="type">double</span> salary;</span><br><span class="line">	<span class="comment">//年龄</span></span><br><span class="line">	<span class="keyword">private</span> <span class="type">int</span> age;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>在上述代码中<code>name</code>、<code>salary</code>和<code>age</code>的作用域是<code>private</code>，因此在类外部无法对它们的值进行设置。为了解决这个问题，可以为<code>Teacher</code>类添加一个构造方法，然后在构造方法中传递参数进行修改。代码如下：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//创建构造方法，为上面的3个属性赋初始值</span></span><br><span class="line"><span class="keyword">public</span> <span class="title function_">Teacher</span><span class="params">(String name, <span class="type">double</span> salary, <span class="type">int</span> age)</span> &#123;</span><br><span class="line">	<span class="comment">//设置教师名称	</span></span><br><span class="line">	<span class="built_in">this</span>.name = name;   </span><br><span class="line">	<span class="comment">//设置教师工资</span></span><br><span class="line">	<span class="built_in">this</span>.salary = salary;   </span><br><span class="line">	<span class="comment">//设置教师年龄</span></span><br><span class="line">	<span class="built_in">this</span>.age = age;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>在<code>Teacher</code>类的构造方法中使用了<code>this</code>关键字对属性<code>name</code>、<code>salary</code>和<code>age</code>进行赋值，<code>this</code>表示当前对象。<code>this.name=name</code>语句表示一个赋值语句，等号左边的<code>this.name</code>是指当前对象具有的变量<code>name</code>，等号右边的<code>name</code>表示参数传递过来的数值。</p>
+<p>创建一个<code>main( )</code>方法对<code>Teacher</code>类进行测试，代码如下：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">	<span class="type">Teacher</span> <span class="variable">teacher</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Teacher</span>(<span class="string">&quot;张三&quot;</span>,<span class="number">5000.0</span>,<span class="number">30</span>);</span><br><span class="line">	System.out.println(<span class="string">&quot;教师名称：&quot;</span> + teacher.name + </span><br><span class="line">	<span class="string">&quot;\n教师工资：&quot;</span> + teacher.salary + <span class="string">&quot;\n教师年龄：&quot;</span> + teacher.age);</span><br><span class="line">&#125; <span class="comment">/* Output:</span></span><br><span class="line"><span class="comment">教师名称：张三</span></span><br><span class="line"><span class="comment">教师工资：5000.0</span></span><br><span class="line"><span class="comment">教师年龄：30</span></span><br><span class="line"><span class="comment">*/</span><span class="comment">//:~</span></span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>当一个类的属性（成员变量）名与访问该属性的方法参数名相同时，则需要使用<code>this</code>关键字来访问类中的属性，以区分类的属性和方法中的参数。</p>
+</blockquote>
+<h2 id="this-方法名"><a href="#this-方法名" class="headerlink" title="this.方法名"></a>this.方法名</h2><p><code>this</code>关键字另一个作用是让类中一个方法访问该类里的另一个方法或实例变量。</p>
+<p>假设定义了一个<code>Dog</code>类，其中<code>Dog</code>对象的<code>run( )</code>方法需要调用它的<code>jump( )</code>方法，<code>Dog</code>类代码如下：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Dog</span> &#123;</span><br><span class="line">	<span class="comment">//定义一个jump( )方法</span></span><br><span class="line">	<span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">jump</span><span class="params">()</span> &#123;</span><br><span class="line">	System.out.println(<span class="string">&quot;正在执行jump( )方法&quot;</span>);</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	<span class="comment">//定义一个run( )方法，run( )方法需要借助jump( )方法</span></span><br><span class="line">	<span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">run</span><span class="params">()</span> &#123;</span><br><span class="line">	<span class="type">Dog</span> <span class="variable">d</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Dog</span>();</span><br><span class="line">	d.jump();</span><br><span class="line">	System.out.println(<span class="string">&quot;正在执行 run( )方法&quot;</span>);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>使用这种方式来定义这个<code>Dog</code>类，确实可以实现在<code>run( )</code>方法中调用<code>jump( )</code>方法。下面再提供一个程序来创建<code>Dog</code>对象，并调用该对象的<code>run( )</code>方法。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">DogTest</span> &#123;</span><br><span class="line">	<span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">	<span class="comment">//创建Dog对象</span></span><br><span class="line">	<span class="type">Dog</span> <span class="variable">dog</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Dog</span>();</span><br><span class="line">	<span class="comment">// 调用Dog对象的run()方法</span></span><br><span class="line">	dog.run();</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>在上面程序中，一共产生了两个<code>Dog</code>对象<code> Dog</code>类的<code>run( )</code>方法中，程序创建了一个<code>Dog</code>对象，并使用名为<code>d</code>的引用变量来指向该<code>Dog</code>对象。在<code>DogTest</code>的<code>main( )</code>方法中，程序再次创建了一个<code>Dog</code>对象，并使用名为<code>dog</code>的引用变量来指向该<code>Dog</code>对象。</p>
+<p>下面思考两个问题。</p>
+<ol>
+<li>在<code>run( )</code>方法中调用<code>jump( )</code>方法时是否一定需要一个<code>Dog</code>对象？</li>
+</ol>
+<p>答案是肯定的，因为没有使用<code>static</code>修饰的成员变量和方法都必须使用对象来调用。</p>
+<ol start="2">
+<li>是否一定需要重新创建一个<code>Dog</code>对象？</li>
+</ol>
+<p>不一定，因为当程序调用<code>run( )</code>方法时，一定会提供一个<code>Dog</code>对象，这样就可以直接使用这个已经存在的<code>Dog</code>对象，而无须重新创建新的<code>Dog</code>对象了。因此需要在<code>run( )</code>方法中获得调用该方法的对象，通过<code>this</code>关键字就可以满足这个要求。</p>
+<p><code>this</code>可以代表任何对象，当<code>this</code>出现在某个方法体中时，它所代表的对象是不确定的，但它的类型是确定的，它所代表的只能是当前类的实例。只有当这个方法被调用时，它所代表的对象才被确定下来，谁在调用这个方法<code>this</code>就代表谁。</p>
+<p>将前面的<code>Dog</code>类的<code>run( )</code>方法改为如下形式会更加合适。<code>run( )</code>方法代码修改如下，其它代码不变。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/** * 第二种定义Dog类方法 **/// 定义一个run()方法，run()方法需要借助jump()方法public void run() &#123;    // 使用this引用调用run()方法的对象    this.jump();    System.out.println(&quot;正在执行run方法&quot;);&#125;</span><br></pre></td></tr></table></figure>
+
+<p>从第一种 Dog 类定义来看，在 Dog 对象的 run( ) 方法内重新创建了一个新的 Dog 对象，并调用它的 jump( ) 方法，这意味着一个 Dog 对象的 run( ) 方法需要依赖于另一个 Dog 对象的 jump( ) 方法，这不符合逻辑。</p>
+<p>第二种 Dog 类定义是当一个 Dog 对象调用 run( ) 方法时，run( ) 方法需要依赖它自己的 jump( ) 方法，与第一种定义类的方法相比，更符合实际情形。</p>
+<p>在现实世界里，对象的一个方法依赖于另一个方法的情形很常见，例如，吃饭方法依赖于拿筷子方法，写程序方法依赖于敲键盘方法。这种依赖都是同一个对象两个方法之间的依赖。因此，Java 允许对象的一个成员直接调用另一个成员，可以省略 this 前缀。也就是说，将上面的 run( ) 方法改为如下形式也完全正确。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">run</span><span class="params">()</span> &#123;</span><br><span class="line">	jump();</span><br><span class="line">	System.out.println(<span class="string">&quot;正在执行run方法&quot;</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>大部分时候，一个方法访问该类中定义的其他方法、成员变量时加不加<code>this</code>前缀的效果是完全一样的。</p>
+<blockquote>
+<p>对于<code>static</code>修饰的方法而言，可以使用类来直接调用该方法，如果在<code>static</code>修饰的方法中使用<code>this</code>关键字，则这个关键字就无法指向合适的对象。所以，<code>static</code>修饰的方法中不能使用<code>this</code>引用。并且 Java 语法规定，静态成员不能直接访问非静态成员。</p>
+</blockquote>
+<p>省略<code>this</code>前缀只是一种假象，虽然程序员省略了调用<code>jump( )</code>方法之前的<code>this</code>，但实际上这个<code>this</code>依然是存在的。</p>
+<h2 id="this-访问构造方法"><a href="#this-访问构造方法" class="headerlink" title="this( )访问构造方法"></a>this( )访问构造方法</h2><p>下面定义一个<code>Student</code>类，使用<code>this( )</code>调用构造方法给<code>name</code>赋值，<code>Student</code>类的代码如下：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Student</span> &#123;</span><br><span class="line">	String name;</span><br><span class="line">	<span class="comment">//默认构造器</span></span><br><span class="line">	<span class="keyword">public</span> <span class="title function_">Student</span><span class="params">()</span> &#123;</span><br><span class="line">		<span class="built_in">this</span>(<span class="string">&quot;张三&quot;</span>);</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	<span class="comment">//含参构造器</span></span><br><span class="line">	<span class="keyword">public</span> <span class="title function_">Student</span><span class="params">(String name)</span> &#123;</span><br><span class="line">		<span class="built_in">this</span>.name = name;</span><br><span class="line">	&#125;   </span><br><span class="line">	</span><br><span class="line">	<span class="comment">//输出 name</span></span><br><span class="line">	<span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">print</span><span class="params">()</span> &#123;</span><br><span class="line">		System.out.println(<span class="string">&quot;姓名：&quot;</span> + name);</span><br><span class="line">	&#125;    </span><br><span class="line">	</span><br><span class="line">	<span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">		<span class="type">Student</span> <span class="variable">student</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Student</span>();</span><br><span class="line">		student.print();</span><br><span class="line">	&#125;</span><br><span class="line">&#125; <span class="comment">/* Output:</span></span><br><span class="line"><span class="comment">姓名：张三</span></span><br><span class="line"><span class="comment">*/</span><span class="comment">//:~</span></span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p><code>this( )</code>不能在普通方法中使用，只能写在构造方法中。<br>在构造方法中使用时，必须是第一条语句。</p>
+</blockquote>
+
+        </div>
+
+        
+            <div class="post-copyright-info">
+                <div class="article-copyright-info-container">
+    <ul>
+        <li>本文标题：Java this关键字</li>
+        <li>本文作者：ZPoet</li>
+        <li>创建时间：2022-05-11 22:40:36</li>
+        <li>
+            本文链接：https://zpoet98.github.io/2022/05/11/Java-this关键字/
+        </li>
+        <li>
+            版权声明：本博客所有文章除特别声明外，均采用 <a class="license" target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">BY-NC-SA</a> 许可协议。转载请注明出处！
+        </li>
+    </ul>
+</div>
+
+            </div>
+        
+
+        
+            <ul class="post-tags-box">
+                
+                    <li class="tag-item">
+                        <a href="/tags/Java/">#Java</a>&nbsp;
+                    </li>
+                
+            </ul>
+        
+
+        
+
+        
+            <div class="comment-container">
+                <div class="comments-container">
+    <div id="comment-anchor"></div>
+    <div class="comment-area-title">
+        <i class="fas fa-comments">&nbsp;评论</i>
+    </div>
+    
+
+        
+            
+    <div id="gitalk-container"></div>
+    <script data-pjax
+            src="//cdn.jsdelivr.net/npm/gitalk/dist/gitalk.min.js"></script>
+    <script data-pjax>
+
+        function loadGitalk() {
+            let __gitalk__pathname = decodeURI(location.pathname);
+            const __gitalk__pathnameLength = __gitalk__pathname.length;
+            const __gitalk__pathnameMaxLength = 50;
+            if (__gitalk__pathnameLength > __gitalk__pathnameMaxLength) {
+                __gitalk__pathname = __gitalk__pathname.substring(0, __gitalk__pathnameMaxLength - 3) + '...';
+            }
+
+            try {
+                Gitalk && new Gitalk({
+                    clientID: '3f0ef496a3a5d1912987',
+                    clientSecret: '6aa73c63951ce2cbc7f435cb5b21a6a8a4bb5050',
+                    repo: 'comment-gitalk',
+                    owner: 'zpoet98',
+                    admin: ['zpoet98'],
+                    id: __gitalk__pathname,
+                    language: 'zh-CN'
+                }).render('gitalk-container');
+
+            } catch (e) {
+                window.Gitalk = null;
+            }
+        }
+
+        if ('true') {
+            const loadGitalkTimeout = setTimeout(() => {
+                loadGitalk();
+                clearTimeout(loadGitalkTimeout);
+            }, 1000);
+        } else {
+            window.addEventListener('DOMContentLoaded', loadGitalk);
+        }
+    </script>
+
+
+
+        
+    
+</div>
+
+            </div>
+        
+    </div>
+</div>
+
+
+                
+            </div>
+
+        </div>
+
+        <div class="page-main-content-bottom">
+            <footer class="footer">
+    <div class="info-container">
+        <div class="copyright-info info-item">
+            &copy;
+            
+            2022&nbsp;<i class="fas fa-heart icon-animate"></i>&nbsp;<a href="/">ZPoet</a>
+        </div>
+        
+        <div class="theme-info info-item">
+            由 <a target="_blank" href="https://hexo.io">Hexo</a> 驱动&nbsp;|&nbsp;主题&nbsp;<a class="theme-version" target="_blank" href="https://github.com/XPoet/hexo-theme-keep">Keep v3.4.5</a>
+        </div>
+        
+        
+    </div>
+</footer>
+
+        </div>
+    </div>
+
+    
+        <div class="post-tools">
+            <div class="post-tools-container">
+    <ul class="tools-list">
+        <!-- TOC aside toggle -->
+        
+            <li class="tools-item page-aside-toggle">
+                <i class="fas fa-outdent"></i>
+            </li>
+        
+
+        <!-- go comment -->
+        
+            <li class="go-comment">
+                <i class="fas fa-comment"></i>
+            </li>
+        
+    </ul>
+</div>
+
+        </div>
+    
+
+    <div class="right-bottom-side-tools">
+        <div class="side-tools-container">
+    <ul class="side-tools-list">
+        <li class="tools-item tool-font-adjust-plus flex-center">
+            <i class="fas fa-search-plus"></i>
+        </li>
+
+        <li class="tools-item tool-font-adjust-minus flex-center">
+            <i class="fas fa-search-minus"></i>
+        </li>
+
+        <li class="tools-item tool-expand-width flex-center">
+            <i class="fas fa-arrows-alt-h"></i>
+        </li>
+
+        <li class="tools-item tool-dark-light-toggle flex-center">
+            <i class="fas fa-moon"></i>
+        </li>
+
+        <!-- rss -->
+        
+
+        
+            <li class="tools-item tool-scroll-to-top flex-center">
+                <i class="fas fa-arrow-up"></i>
+            </li>
+        
+
+        <li class="tools-item tool-scroll-to-bottom flex-center">
+            <i class="fas fa-arrow-down"></i>
+        </li>
+    </ul>
+
+    <ul class="exposed-tools-list">
+        <li class="tools-item tool-toggle-show flex-center">
+            <i class="fas fa-cog fa-spin"></i>
+        </li>
+        
+    </ul>
+</div>
+
+    </div>
+
+    
+        <aside class="page-aside">
+            <div class="post-toc-wrap">
+    <div class="post-toc">
+        <ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#this-%E5%B1%9E%E6%80%A7%E5%90%8D"><span class="nav-text">this.属性名</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#this-%E6%96%B9%E6%B3%95%E5%90%8D"><span class="nav-text">this.方法名</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#this-%E8%AE%BF%E9%97%AE%E6%9E%84%E9%80%A0%E6%96%B9%E6%B3%95"><span class="nav-text">this( )访问构造方法</span></a></li></ol>
+    </div>
+</div>
+        </aside>
+    
+
+    <div class="image-viewer-container">
+    <img src="">
+</div>
+
+
+    
+        <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+          <span class="search-input-field-pre">
+            <i class="fas fa-keyboard"></i>
+          </span>
+            <div class="search-input-container">
+                <input autocomplete="off"
+                       autocorrect="off"
+                       autocapitalize="off"
+                       placeholder="搜索..."
+                       spellcheck="false"
+                       type="search"
+                       class="search-input"
+                >
+            </div>
+            <span class="popup-btn-close">
+                <i class="fas fa-times"></i>
+            </span>
+        </div>
+        <div id="search-result">
+            <div id="no-result">
+                <i class="fas fa-spinner fa-pulse fa-5x fa-fw"></i>
+            </div>
+        </div>
+    </div>
+</div>
+
+    
+
+</main>
+
+
+
+<script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.5/source/js/utils.js"></script><script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.5/source/js/main.js"></script><script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.5/source/js/header-shrink.js"></script><script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.5/source/js/back2top.js"></script><script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.5/source/js/dark-light-toggle.js"></script>
+
+
+    <script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.5/source/js/local-search.js"></script>
+
+
+
+    <script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.5/source/js/code-copy.js"></script>
+
+
+
+    <script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.5/source/js/lazyload.js"></script>
+
+
+<div class="post-scripts pjax">
+    
+        <script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.5/source/js/left-side-toggle.js"></script><script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.5/source/js/libs/anime.min.js"></script><script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.5/source/js/toc.js"></script>
+    
+</div>
+
+
+    <script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.5/source/js/libs/pjax.min.js"></script>
+<script>
+    window.addEventListener('DOMContentLoaded', () => {
+        window.pjax = new Pjax({
+            selectors: [
+                'head title',
+                '.page-container',
+                '.pjax'
+            ],
+            history: true,
+            debug: false,
+            cacheBust: false,
+            timeout: 0,
+            analytics: false,
+            currentUrlFullReload: false,
+            scrollRestoration: false,
+            // scrollTo: true,
+        });
+
+        document.addEventListener('pjax:send', () => {
+            KEEP.utils.pjaxProgressBarStart();
+        });
+
+        document.addEventListener('pjax:complete', () => {
+            KEEP.utils.pjaxProgressBarEnd();
+            window.pjax.executeScripts(document.querySelectorAll('script[data-pjax], .pjax script'));
+            KEEP.refresh();
+        });
+    });
+</script>
+
+
+
+</body>
+</html>
